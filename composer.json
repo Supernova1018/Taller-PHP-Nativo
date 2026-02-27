@@ -1,0 +1,19 @@
+{
+    "name": "user/curso_php",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "David"
+        }
+    ],
+    "require": {
+        "mpdf/mpdf": "8.2",
+        "intervention/image": "^3.11",
+        "dompdf/dompdf": "^3.1"
+    }
+}
