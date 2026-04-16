@@ -7,6 +7,8 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Phone;
 use Database\Seeders\PhoneSeeder;
+use App\Models\Categoria;
+use Database\Seeders\CategoriaSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,8 +20,9 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call([
+            CAtegoriaSeeder::class,
             PhoneSeeder::class
-        ]);
+        ]);        
 
         // User::factory(10)->create();
 

@@ -23,7 +23,8 @@ class EventFactory extends Factory
             "event_speaker_name" => fake()->name . fake()->lastName,
             "event_location_name" => fake()->address,
             "event_meetup_url" => fake()->url,
-            "event_is_virtual" =>fake()->boolean(30)
+            "event_is_virtual" =>fake()->boolean(30),
+            "event_status" => fake()->boolean(30)
         ];
     }
 }

@@ -29,7 +29,8 @@ class EventRequest extends FormRequest
             "event_location_name" => 'nullable|max:255', //Multiple rules in String format
             "event_meetup_url" => 'nullable|url',
             "event_is_virtual" => ['required', 'boolean'],
-            "fk_venue_event" => ['required','exists:venues,id_venue']
+            "fk_venue_event" => ['required','exists:venues,id_venue'],
+            "event_status" => ['required','boolean']
         ];
     }
 }

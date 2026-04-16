@@ -2,53 +2,37 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Phones;
-use App\Http\Requests\StorePhonesRequest;
-use App\Http\Requests\UpdatePhonesRequest;
+use App\Models\Phone;
+use App\Http\Requests\StorePhoneRequest;
+use App\Http\Requests\UpdatePhoneRequest;
 
 class PhonesController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        $phones = Phones::all();
-        return response()->json(['phones' => $phones]);
+        return response()->json(Phone::with('categoria')->get());
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StorePhonesRequest $request)
+    public function store(StorePhoneRequest $request)
     {
-        $phone = Phones::create($request->validated());
-        return response()->json(['phone' => $phone], 201);
+        $phone = Phone::create($request->validated());
+        return response()->json($phone, 201);
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Phones $phones)
+    public function show(Phone $phone)
     {
-        return response()->json(['phone' => $phones]);
+        return response()->json($phone->load('categoria'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdatePhonesRequest $request, Phones $phones)
+    public function update(UpdatePhoneRequest $request, Phone $phone)
     {
-        $phones->update($request->validated());
-        return response()->json(['phone' => $phones]);
+        $phone->update($request->validated());
+        return response()->json($phone);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Phones $phones)
+    public function destroy(Phone $phone)
     {
-        $phones->delete();
+        $phone->delete();
         return response()->json(null, 204);
     }
 }

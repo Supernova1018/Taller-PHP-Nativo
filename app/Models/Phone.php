@@ -14,6 +14,14 @@ class Phone extends Model
         "phone_model",
         "phone_price",
         "phone_display_size",
-        "phone_is_smartphone"
+        "phone_is_smartphone",
+        "id_categoria",
+        "codigo_barras"
     ];
+
+
+    public function categoria()
+{
+    return $this->belongsTo(\App\Models\Categoria::class, 'id_categoria');
+}
 }

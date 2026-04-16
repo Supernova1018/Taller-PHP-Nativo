@@ -26,7 +26,9 @@ class UpdatePhonesRequest extends FormRequest
                 "phone_model" => ['required', 'max:255'],
                 "phone_price" => ['required', 'numeric', 'min:1'],
                 "phone_display_size" => ['required', 'integer', 'min:1'],
-                "phone_is_smartphone" => ['required', 'boolean']
+                "phone_is_smartphone" => ['required', 'boolean'],
+                "id_categoria" => ['required', 'exists:categorias,id_categoria'],
+                "codigo_barras" => ['required', 'string', 'max:50']
         ];
     }
 }
